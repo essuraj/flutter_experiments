@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _expand() {
     setState(() {
       _height =
-          _height == 200 ? MediaQuery.of(context).size.height / 2 + 80 : 200;
+          _height == 200 ? MediaQuery.of(context).size.height / 2 + 100 : 200;
     });
   }
 
