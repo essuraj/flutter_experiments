@@ -7,15 +7,6 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -40,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _expand() {
     setState(() {
       _height =
-          _height == 200 ? MediaQuery.of(context).size.height / 2 + 100 : 200;
+          _height == 200 ? MediaQuery.of(context).size.height / 2 + 80 : 200;
     });
   }
 
@@ -116,8 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ]),
                   // color: Colors.white,
-                  duration: Duration(seconds: 1),
-                  curve: Curves.easeOut,
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.easeInCubic,
                   width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.all(16),
                   child: Column(
@@ -162,9 +153,45 @@ class _MyHomePageState extends State<MyHomePage> {
                                     : Icons.keyboard_arrow_up,
                                 color: Colors.black,
                               ),
-                            )
+                            ),
                           ],
                         ),
+                      ),
+                      Container(
+                        child: Expanded(
+                            flex: 1,
+                            child: ListView(
+                              shrinkWrap: true,
+                              children: <Widget>[
+                                ListTile(
+                                  leading: Icon(Icons.map),
+                                  title: Text(
+                                    'Annual Leave',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text('Feb 12 - Feb 19'),
+                                ),
+                                ListTile(
+                                  leading: Icon(Icons.photo_album),
+                                  title: Text(
+                                    'Study Leave',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text('Mar 1 - Mar 5'),
+                                ),
+                                ListTile(
+                                  leading: Icon(Icons.access_time),
+                                  title: Text(
+                                    'Home Leave',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text('Mar 14 - Mar 25'),
+                                ),
+                              ],
+                            )),
                       )
                     ],
                   ),
@@ -182,7 +209,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("REQUEST LEAVE"),
               onPressed: () {},
             ),
-          )
+          ),
         ],
       )),
     );
